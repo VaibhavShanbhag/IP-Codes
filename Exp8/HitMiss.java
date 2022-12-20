@@ -13,13 +13,13 @@ class HitMissRun{
                 0, 255, 255, 255, 0, 0, 0, 0,
                 0, 255, 255, 255, 0, 255, 0, 0,
                 0, 0, 255, 0, 0, 0, 0, 0,
-                0, 0, 255, 0, 0, 255, 255, 0,
+                255, 0, 255, 0, 0, 255, 255, 0,
                 0, 255, 0, 255, 0, 0, 255, 0,
                 0, 255, 255, 255, 0, 0, 0, 0);
         Mat kernel = new Mat( 3, 3, CvType.CV_16S );
         kernel.put(row ,col,
-                0, 1, 0,
-                1, -1, 1,
+                0, -1, 0,
+                1, -1, -1,
                 0, 1, 0 );
         Mat output_image = new Mat();
         Imgproc.morphologyEx(input_image, output_image, Imgproc.MORPH_HITMISS, kernel);
